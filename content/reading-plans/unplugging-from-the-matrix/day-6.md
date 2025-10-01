@@ -1,0 +1,55 @@
+# Day 6: Lens Three—Theory of Knowledge
+
+## "I Can Only Show You the Door. You're the One Who Has to Walk Through It."
+
+Morpheus can't *give* Neo knowledge. Neo must develop it through experience guided by theory. This is exactly what Deming means by **Theory of Knowledge**—understanding how we learn and improve.
+
+**Most organizations don't learn. They copy.**
+
+They see a successful company and imitate their practices without understanding the underlying principles. They implement "best practices" without knowing why they work (or whether they'll work in a different context). They react to data without having a theory to explain it.
+
+**Deming's insight:** Without theory, there is no learning. There is only copying, imitation, and random trial and error.
+
+**What is a theory?**
+
+A theory is a framework that:
+- Explains why something happens
+- Predicts what will happen under different conditions
+- Can be tested against experience
+- Evolves when predictions don't match reality
+
+**The cycle of knowledge:**
+1. Start with a theory (prediction about what will happen and why)
+2. Test it (Plan-Do-Study-Act)
+3. Compare prediction to reality
+4. Revise theory
+5. Repeat
+
+This is the foundation of the **PDSA Cycle** (Plan-Do-Study-Act):
+- **Plan:** What do we predict will happen, and why? What will we test?
+- **Do:** Carry out the test on a small scale
+- **Study:** What did we learn? How does reality compare to prediction?
+- **Act:** What changes should we make to our theory? What next?
+
+**Why "Study" not "Check"?**
+
+Many people use "PDCA" (Check). But "Check" implies you're just verifying the plan worked. "Study" recognizes you're learning—sometimes the plan works, sometimes it doesn't, but either way you gain knowledge.
+
+**Without theory:**
+- "Our sales are down" (okay, but why? what's your theory?)
+- "This best practice worked at Company X" (okay, but why? will it work here?)
+- "Let's try this and see what happens" (okay, but what do you predict? how will you know if you learned anything?)
+
+**With theory:**
+- "I predict sales are down because of X, which should also show up as Y. Let's test."
+- "This practice worked at Company X because of these conditions. We have/don't have those conditions, so I predict..."
+- "Based on our understanding of the system, if we change X, I predict Y will happen because Z. Let's test on a small scale."
+
+**The profound shift:** Management becomes less about having "the answer" and more about having better theories, testing them, and continuously learning.
+
+## Reflection Questions
+1. When was the last time you made a change based on a theory you could articulate? What did you predict would happen?
+2. When you copy a "best practice," do you understand *why* it works? In what contexts? What theory explains it?
+
+## Today's Challenge
+Choose a problem you're facing. Write down: (1) Your theory about why it's happening, (2) A prediction about what would happen if you changed something, (3) A small test you could run to learn.
