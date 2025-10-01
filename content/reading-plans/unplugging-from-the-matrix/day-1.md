@@ -9,11 +9,11 @@ For managers and leaders, there's a similar matrix—a set of deeply embedded pr
 W. Edwards Deming spent decades helping organizations see through this illusion. He observed that most managers operate within a system of thinking that creates the problems they're trying to solve. Like Neo before taking the red pill, they can't see it because they're inside it.
 
 > *It is interesting to note that the prevailing system of management has been created by best efforts, without the knowledge that we shall learn in later chapters. We pause here to ask what is the effect of 
-
-Hard work? 
-Best efforts? 
-
-**Answer:** We thus only dig deeper the pit that we are in. Hard work and best efforts will not by themselves dig us out of the pit. In fact, it is only by illumination of outside knowledge that we may observe that we are in a pit.*  
+>
+>Hard work? 
+>Best efforts? 
+>
+>**Answer:** We thus only dig deeper the pit that we are in. Hard work and best efforts will not by themselves dig us out of the pit. In fact, it is only by illumination of outside knowledge that we may observe that we are in a pit.*  
 >   
 > — W. Edwards Deming, *The New Economics for Industry, Government, Education*  
 > *(2nd Ed, pp. 22–23; 3rd Ed, pp. 17–18)*
