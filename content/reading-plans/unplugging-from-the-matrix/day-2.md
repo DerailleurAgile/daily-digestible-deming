@@ -2,27 +2,29 @@
 
 ## Seeing the Code
 
-In *The Matrix*, once Neo begins training, he learns to see the green code behind the illusion. Similarly, once you know what to look for, you'll start seeing Deming's faulty practices and deadly diseases everywhere.
+In *The Matrix*, once Neo begins training with Morpheus, he learns to see through the artificial reality of The Matrix and how to bend it to his will. Similarly, once you understand how to see through the illusions of the phenomena you see daily in your organization, you'll begin to the causes behind them. In *The New Economics*, Dr. Deming provides a list of nine faulty practices that precipitate many of the problems management has to contend with:
 
 **Deming's Nine Faulty Practices** (from *The New Economics*):
-1. **Lack of constancy of purpose** - Shifting priorities, quarterly thinking, management by crisis
-2. **Emphasis on short-term profits** - Sacrificing long-term health for immediate numbers
-3. **Personal review systems, merit rating, annual review** - Ranking people, forced distributions
-4. **Mobility of management** - Job-hopping leaders who never see the consequences of their decisions
-5. **Management by use of visible figures only** - Ignoring the unknown and unknowable factors
-6. **Excessive medical costs** - Healthcare expenses that cripple competitiveness
-7. **Excessive costs of liability** - Legal costs from adversarial relationships
-8. **Focus on the denominator** - Cutting costs rather than improving value
-9. **Overemphasis on testing and inspection** - Finding defects instead of preventing them
+1. **Management by reaction** - Rective, short-term, skills only, no theory of management directing thought or action
+2. **Ranking people, sales, teams, divisions** - Reward the top, punish the bottom
+3. **Incentive pay** - The illusion of paying for and rewarding performance
+4. **Failure to manage organization as a SYSTEM** - Focus on the parts separate from their interactions, incentivizes destructive sub-opmizations that hurt the whole
+5. **Management by Objective (MBO)** - The practice of dividing a company objective into parts and distributing it for completion
+6. **Setting numerical goals** - Numerical goals and targets are fiction without methods to achieve them
+7. **Management by Results (MBR)** - Taking action on the last figure, defect, complaint, delay, accident, breakdown
+8. **Procuring materials and services at lowest cost** - RFPs and bids do not guarantee lowest cost of ownership
+9. **Delegating quality to an individual, department, group** - Quality is made first and foremost *in the boardroom* and it is there that efforts to improve it begin
 
-**The Seven Deadly Diseases** include:
-- Lack of constancy of purpose
-- Emphasis on short-term profits
-- Performance appraisals and merit ratings
-- Mobility of top management
-- Running a company on visible figures alone
-- Excessive medical costs
-- Excessive warranty costs
+**Dr. Deming's Seven Deadly Diseases** (from *Out of the Crisis*)
+Some of these overlap with the Faulty Practices because Dr. Deming diagnosed them before capturing them in *The New Economics*.
+
+1. **Lack of constancy of purpose** to plan product and service that will have a market and keep the company in business, and provide jobs
+2. **Emphasis on short-term profits** short-term thinking (just the opposite from constancy of purpose to stay in business), fed by fear of unfriendly takeover, and by push from bankers and owners for dividends
+3. **Evaluation of performance**, merit rating, or annual review.
+4. **Mobility of management**, job hopping.
+5. **Management by use only of visible figures**, with little or no consideration of figures that are unknown or unknowable.
+6. **Excessive medical costs** As reported by Dr. Deming in Out of the Crisis (pages 97-98), executives shared with him that the cost of medical care for their employees was amongst their largest overall expenses, not to mention the cost of medical care embedded in the purchase price of what they purchased from their suppliers.
+7. **Excessive costs of liability**, swelled by lawyers that work on contingency fees.
 
 **Why are these problematic?** Because they all share a common flaw: **they treat the organization as a collection of independent parts rather than an interdependent system.** They assume:
 - People work independently (they don't—they work in systems)
@@ -37,4 +39,4 @@ These practices persist because they provide the *illusion* of control. They're 
 2. What would happen if you stopped doing one of them? What fear prevents you from stopping?
 
 ## Today's Challenge
-Identify one "deadly disease" or "faulty practice" in your workplace. Write down: (1) Why you think it exists, (2) What problem it's meant to solve, (3) What problems it actually creates.
+Identify one "deadly disease" or "faulty practice" in your workplace. Write down: (1) Why you think it exists, (2) What problem it's meant to solve, (3) What problems it actually creates. (4) What would happen if you eliminated or stopped doing it.
