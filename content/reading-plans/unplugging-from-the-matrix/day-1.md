@@ -13,9 +13,9 @@ W. Edwards Deming spent decades helping organizations see through this illusion.
 >*Hard work?* 
 >*Best efforts?* 
 >
->***Answer:** *We thus only dig deeper the pit that we are in. Hard work and best efforts will not by themselves dig us out of the pit. In fact, it is only by illumination of outside knowledge that we may observe that we are in a pit.*
+>**Answer:** *We thus only dig deeper the pit that we are in. Hard work and best efforts will not by themselves dig us out of the pit. In fact, it is only by illumination of outside knowledge that we may observe that we are in a pit.*
 >   
-> *— W. Edwards Deming, *The New Economics for Industry, Government, Education*  
+> — W. Edwards Deming, *The New Economics for Industry, Government, Education*  
 > *(2nd Ed, pp. 22–23; 3rd Ed, pp. 17–18)*
 
 **The faulty practices Deming identified aren't just ineffective—they're counterproductive.** They create the opposite of what we intend:
