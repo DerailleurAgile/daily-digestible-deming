@@ -14,22 +14,18 @@ export async function generateStaticParams() {
 }
 
 export default function DayReading({ params }: { params: { dayNumber: string } }) {
-  const { dayNumber } = params;
-  const dayNum = parseInt(dayNumber, 10);
+  const dayNum = parseInt(params.dayNumber, 10);
 
   if (dayNum < 1 || dayNum > metadata.days) notFound();
 
-  // Synchronous read
-  const filePath = path.join(
-    process.cwd(),
-    "content",
-    "reading-plans",
-    "unplugging-from-the-matrix",
-    `day-${dayNumber}.md`
-  );
-
+  // Synchronously read the Markdown file
   let content: string;
   try {
+    const filePath = path.join(
+      process.cwd(),
+      "content/reading-plans/unplugging-from-the-matrix",
+      `day-${dayNum}.md`
+    );
     content = fs.readFileSync(filePath, "utf-8");
   } catch {
     notFound();
@@ -37,7 +33,6 @@ export default function DayReading({ params }: { params: { dayNumber: string } }
 
   return (
     <main className="min-h-screen">
-      {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <Link
@@ -55,14 +50,12 @@ export default function DayReading({ params }: { params: { dayNumber: string } }
         </div>
       </header>
 
-      {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <div className="prose prose-lg prose-headings:font-roboto-slab prose-p:font-spectral max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
       </article>
 
-      {/* Navigation */}
       <nav className="border-t border-gray-200 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <div className="flex justify-between items-center">
@@ -96,7 +89,6 @@ export default function DayReading({ params }: { params: { dayNumber: string } }
         </div>
       </nav>
 
-      {/* Footer */}
       <footer className="border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <p className="text-gray-600 text-center">
