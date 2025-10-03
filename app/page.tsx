@@ -84,7 +84,7 @@ export default function Home() {
       <footer className="border-t border-gray-200 mt-16">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <p className="text-gray-600 text-center">
-            © 2024 The Daily Digestible Deming. Making Deming accessible, one day at a time.
+            © {new Date().getFullYear()} The Daily Digestible Deming. Making Deming accessible, one day at a time.
           </p>
         </div>
       </footer>
