@@ -40,7 +40,7 @@ async function getDayContent(dayNumber: string) {
     }
 
     return null;
-  } catch (_error) {
+  } catch {
     return null;
   }
 }

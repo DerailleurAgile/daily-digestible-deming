@@ -32,15 +32,15 @@ export async function GET(req: Request) {
         ? "image/gif"
         : "application/octet-stream";
 
-    // Convert Node Buffer -> ArrayBuffer for the Web Response body
-    const arrayBuffer = data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
+    // Convert Node Buffer -> Uint8Array (ArrayBufferView) acceptable to Response
+    const uint8 = new Uint8Array(data);
 
-    return new Response(arrayBuffer, {
+    return new Response(uint8, {
       headers: {
         "Content-Type": mime,
       },
     });
-  } catch (_err) {
+  } catch {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }
 }
