@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import fs from "fs";
@@ -5,8 +6,15 @@ import path from "path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-// Import metadata to avoid hardcoding days
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
+
+// Type for the page props
+interface DayPageProps {
+  params: {
+    dayNumber: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
+}
 
 // Generate static params dynamically from metadata
 export async function generateStaticParams() {
@@ -15,6 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
+// Helper to get content for a given day
 async function getDayContent(dayNumber: string) {
   try {
     const filePath = path.join(
@@ -25,18 +34,13 @@ async function getDayContent(dayNumber: string) {
       `day-${dayNumber}.md`
     );
 
-    const content = fs.readFileSync(filePath, "utf-8");
-    return content;
-  } catch (error) {
+    return fs.readFileSync(filePath, "utf-8");
+  } catch {
     return null;
   }
 }
 
-export default async function DayReading({
-  params,
-}: {
-  params: { dayNumber: string };
-}) {
+export default async function DayReading({ params }: DayPageProps) {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
@@ -62,10 +66,10 @@ export default async function DayReading({
             ← Back to Plan Overview
           </Link>
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl">Day {dayNum} of {metadata.days}</h1>
-            <span className="text-gray-600 text-sm">
-              {metadata.title}
-            </span>
+            <h1 className="text-2xl">
+              Day {dayNum} of {metadata.days}
+            </h1>
+            <span className="text-gray-600 text-sm">{metadata.title}</span>
           </div>
         </div>
       </header>
@@ -73,9 +77,7 @@ export default async function DayReading({
       {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <div className="prose prose-lg prose-headings:font-roboto-slab prose-p:font-spectral max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {content}
-          </ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
       </article>
 
@@ -91,7 +93,7 @@ export default async function DayReading({
                 ← Previous Day
               </Link>
             ) : (
-              <div></div>
+              <div />
             )}
 
             {dayNum < metadata.days ? (
