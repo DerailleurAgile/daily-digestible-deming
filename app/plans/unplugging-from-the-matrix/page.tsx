@@ -1,15 +1,12 @@
-import Link from 'next/link';
+import Link from "next/link";
+import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
 
 export default function PlanOverview() {
-  const days = [
-    { number: 1, title: "The Matrix of Management" },
-    { number: 2, title: "The Illusion—Faulty Practices & Deadly Diseases" },
-    { number: 3, title: "Taking the Red Pill—Introduction to Profound Knowledge" },
-    { number: 4, title: "Lens One—Appreciation for a System" },
-    { number: 5, title: "Lens Two—Knowledge of Variation" },
-    { number: 6, title: "Lens Three—Theory of Knowledge" },
-    { number: 7, title: "Lens Four—Psychology (And Bringing It All Together)" },
-  ];
+  // Build the days array dynamically from metadata
+  const days = Array.from({ length: metadata.days }, (_, i) => ({
+    number: i + 1,
+    title: metadata.dayTitles[i] || `Day ${i + 1}`, // fallback if missing
+  }));
 
   return (
     <main className="min-h-screen">
@@ -26,17 +23,16 @@ export default function PlanOverview() {
       {/* Plan Overview */}
       <section className="max-w-4xl mx-auto px-6 py-16">
         <div className="mb-12">
-          <h2 className="text-5xl mb-6">Unplugging from the Management Matrix</h2>
+          <h2 className="text-5xl mb-6">{metadata.title}</h2>
           <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            A 7-day journey discovering why the management world you see every day might be an illusion—and 
-            learning to see your organization through new eyes using W. Edwards Deming's System of Profound Knowledge.
+            {metadata.description}
           </p>
           <div className="flex gap-4 text-gray-600">
-            <span className="font-semibold">7 days</span>
+            <span className="font-semibold">{metadata.days} days</span>
             <span>•</span>
-            <span>5-7 minutes per day</span>
+            <span>{metadata.estimatedTime}</span>
             <span>•</span>
-            <span>Beginner friendly</span>
+            <span>{metadata.level}</span>
           </div>
         </div>
 
@@ -44,22 +40,12 @@ export default function PlanOverview() {
         <div className="mb-12 bg-gray-50 border border-gray-200 rounded-lg p-8">
           <h3 className="text-2xl mb-4">What You'll Learn</h3>
           <ul className="space-y-3">
-            <li className="flex items-start">
-              <span className="text-blue-600 mr-2">✓</span>
-              <span>Recognize the Nine Faulty Practices and Seven Deadly Diseases that undermine organizations</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-blue-600 mr-2">✓</span>
-              <span>Understand the four lenses of Profound Knowledge: Systems, Variation, Knowledge, and Psychology</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-blue-600 mr-2">✓</span>
-              <span>See how these lenses interrelate to create transformational understanding</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-blue-600 mr-2">✓</span>
-              <span>Begin applying systems thinking to your daily work</span>
-            </li>
+            {metadata.learningGoals.map((goal: string, idx: number) => (
+              <li key={idx} className="flex items-start">
+                <span className="text-blue-600 mr-2">✓</span>
+                <span>{goal}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -79,7 +65,9 @@ export default function PlanOverview() {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-semibold mb-1">{day.title}</h4>
-                    <p className="text-gray-600 text-sm">Day {day.number} of 7</p>
+                    <p className="text-gray-600 text-sm">
+                      Day {day.number} of {metadata.days}
+                    </p>
                   </div>
                   <div className="text-gray-400">→</div>
                 </div>
@@ -107,7 +95,7 @@ export default function PlanOverview() {
       <footer className="border-t border-gray-200 mt-16">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <p className="text-gray-600 text-center">
-            © 2024 The Daily Digestible Deming
+            © {new Date().getFullYear()} The Daily Digestible Deming
           </p>
         </div>
       </footer>

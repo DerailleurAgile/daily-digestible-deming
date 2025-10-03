@@ -3,6 +3,22 @@
   "title": "Unplugging from the Management Matrix",
   "description": "A 7-day journey discovering why the management world you see every day might be an illusion—and learning to see your organization through new eyes using W. Edwards Deming's System of Profound Knowledge.",
   "days": 7,
-  "difficulty": "beginner",
-  "tags": ["systems-thinking", "profound-knowledge", "fundamentals", "matrix-metaphor"]
+  "difficulty": "Beginner friendly",
+  "estimatedTime": "5-7 minutes per day",
+  "tags": ["systems-thinking", "profound-knowledge", "fundamentals", "matrix-metaphor"],
+  "learningGoals": [
+    "Recognize the Nine Faulty Practices and Seven Deadly Diseases that undermine organizations",
+    "Understand the four lenses of Profound Knowledge: Systems, Variation, Knowledge, and Psychology",
+    "See how these lenses interrelate to create transformational understanding",
+    "Begin applying systems thinking to your daily work"
+  ],
+  "dayTitles": [
+    "The Matrix of Management",
+    "The Illusion—Faulty Practices & Deadly Diseases",
+    "Taking the Red Pill—Introduction to Profound Knowledge",
+    "Lens One—Appreciation for a System",
+    "Lens Two—Knowledge of Variation",
+    "Lens Three—Theory of Knowledge",
+    "Lens Four—Psychology (And Bringing It All Together)"
+  ]
 }
