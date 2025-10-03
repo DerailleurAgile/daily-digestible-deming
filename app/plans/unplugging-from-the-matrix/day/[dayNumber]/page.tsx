@@ -29,13 +29,13 @@ async function getDayContent(dayNumber: string): Promise<string | null> {
   }
 }
 
-// Correct App Router page props type
-interface DayReadingPageProps {
+// --- KEY FIX ---
+// Do NOT declare a separate interface; type inline instead
+export default async function DayReading({
+  params,
+}: {
   params: { dayNumber: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export default async function DayReading({ params }: DayReadingPageProps) {
+}) {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
