@@ -4,7 +4,6 @@ import fs from "fs";
 import path from "path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
 
 // Generate static params dynamically
@@ -30,12 +29,13 @@ async function getDayContent(dayNumber: string): Promise<string | null> {
   }
 }
 
-// Define props type for the page
-type DayPageProps = {
+// Correct App Router page props type
+interface DayReadingPageProps {
   params: { dayNumber: string };
-};
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
-export default async function DayReading({ params }: DayPageProps) {
+export default async function DayReading({ params }: DayReadingPageProps) {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
