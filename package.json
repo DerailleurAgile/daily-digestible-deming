@@ -25,5 +25,18 @@
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is the Official Learning App for The Digestible Deming",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerailleurAgile/daily-digestible-deming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DerailleurAgile/daily-digestible-deming/issues"
+  },
+  "homepage": "https://github.com/DerailleurAgile/daily-digestible-deming#readme"
 }
