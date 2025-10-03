@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -13,26 +13,38 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function DayReading({ params }: { params: { dayNumber: string } }) {
+// Helper to read a day's Markdown content asynchronously
+async function getDayContent(dayNumber: string): Promise<string | null> {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "content",
+      "reading-plans",
+      "unplugging-from-the-matrix",
+      `day-${dayNumber}.md`
+    );
+    return await fs.readFile(filePath, "utf-8");
+  } catch {
+    return null;
+  }
+}
+
+// Fully async page with explicit Promise return type
+export default async function DayReading({
+  params,
+}: {
+  params: { dayNumber: string };
+}): Promise<JSX.Element> {
   const dayNum = parseInt(params.dayNumber, 10);
 
   if (dayNum < 1 || dayNum > metadata.days) notFound();
 
-  // Synchronously read the Markdown file
-  let content: string;
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      "content/reading-plans/unplugging-from-the-matrix",
-      `day-${dayNum}.md`
-    );
-    content = fs.readFileSync(filePath, "utf-8");
-  } catch {
-    notFound();
-  }
+  const content = await getDayContent(params.dayNumber);
+  if (!content) notFound();
 
   return (
     <main className="min-h-screen">
+      {/* Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <Link
@@ -50,12 +62,14 @@ export default function DayReading({ params }: { params: { dayNumber: string } }
         </div>
       </header>
 
+      {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <div className="prose prose-lg prose-headings:font-roboto-slab prose-p:font-spectral max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
       </article>
 
+      {/* Navigation */}
       <nav className="border-t border-gray-200 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <div className="flex justify-between items-center">
@@ -89,6 +103,7 @@ export default function DayReading({ params }: { params: { dayNumber: string } }
         </div>
       </nav>
 
+      {/* Footer */}
       <footer className="border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <p className="text-gray-600 text-center">
