@@ -33,7 +33,7 @@ export default function PlanOverview() {
             <span>•</span>
             <span>{metadata.estimatedTime}</span>
             <span>•</span>
-            <span>{metadata.level}</span>
+            <span>{metadata.difficulty}</span>
           </div>
         </div>
 
