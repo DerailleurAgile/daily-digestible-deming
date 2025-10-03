@@ -2,7 +2,7 @@
 
 ## "I'm Trying to Free Your Mind"
 
-In the movie, Morpheus offers Neo a choice that will determine his future: take the blue pill (stay comfortable in the illusion of the real world) or the red pill (see the illusions for what they are and so break them).
+In the movie, Morpheus offers Neo a choice that will determine his future: take the **blue pill** (stay comfortable in the illusion of the real world) or the **red pill** (see the illusions for what they are and so break through them).
 
 Dr. Deming offers us the same choice. His "red pill" is the **System of Profound Knowledge**—four interconnected lenses that allow you to see your organization as it actually is, not as conventional management theory suggests. He referred to this as the route to transformation:
 
