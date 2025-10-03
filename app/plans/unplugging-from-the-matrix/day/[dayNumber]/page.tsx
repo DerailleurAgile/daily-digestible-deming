@@ -20,16 +20,25 @@ export function generateStaticParams() {
 
 async function getDayContent(dayNumber: string) {
   try {
-    const filePath = path.join(
+    const base = path.join(
       process.cwd(),
       'content',
       'reading-plans',
-      'unplugging-from-the-matrix',
-      `day-${dayNumber}.md`
+      'unplugging-from-the-matrix'
     );
-    
-    const content = fs.readFileSync(filePath, 'utf-8');
-    return content;
+
+    // Prefer .mdx but fall back to .md so existing files keep working
+    const mdxPath = path.join(base, `day-${dayNumber}.mdx`);
+    const mdPath = path.join(base, `day-${dayNumber}.md`);
+
+    if (fs.existsSync(mdxPath)) {
+      return fs.readFileSync(mdxPath, 'utf-8');
+    }
+    if (fs.existsSync(mdPath)) {
+      return fs.readFileSync(mdPath, 'utf-8');
+    }
+
+    return null;
   } catch (error) {
     return null;
   }
@@ -53,6 +62,21 @@ export default async function DayReading({
     notFound();
   }
 
+  // Render relative image links (e.g. ![alt](./img.png)) via the content API
+  const components = {
+    img: ({ src, alt, ...rest }: any) => {
+      if (!src) return <img alt={alt} {...rest} />;
+      if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
+        return <img src={src} alt={alt} {...rest} />;
+      }
+      const cleaned = src.replace(/^\.\//, '');
+      const apiPath = `/api/content?path=${encodeURIComponent(
+        `reading-plans/unplugging-from-the-matrix/day-${dayNumber}/${cleaned}`
+      )}`;
+      return <img src={apiPath} alt={alt} {...rest} />;
+    },
+  };
+
   return (
     <main className="min-h-screen">
       {/* Header */}
@@ -73,7 +97,7 @@ export default async function DayReading({
       {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <div className="prose prose-lg prose-headings:font-roboto-slab prose-p:font-spectral max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
             {content}
           </ReactMarkdown>
         </div>
