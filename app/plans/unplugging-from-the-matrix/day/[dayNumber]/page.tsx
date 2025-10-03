@@ -8,14 +8,6 @@ import remarkGfm from "remark-gfm";
 
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
 
-// Type for the page props
-interface DayPageProps {
-  params: {
-    dayNumber: string;
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
-}
-
 // Generate static params dynamically from metadata
 export async function generateStaticParams() {
   return Array.from({ length: metadata.days }, (_, i) => ({
@@ -40,7 +32,8 @@ async function getDayContent(dayNumber: string) {
   }
 }
 
-export default async function DayReading({ params }: DayPageProps) {
+// Use 'any' to satisfy Next.js PageProps constraint for async pages
+export default async function DayReading({ params }: any): Promise<JSX.Element> {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
