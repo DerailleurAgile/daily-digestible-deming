@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -39,7 +40,7 @@ async function getDayContent(dayNumber: string) {
     }
 
     return null;
-  } catch (error) {
+  } catch (_error) {
     return null;
   }
 }
@@ -64,12 +65,13 @@ export default async function DayReading({
 
   // Render relative image links (e.g. ![alt](./img.png)) via the content API
   const components = {
-    img: ({ src, alt, ...rest }: any) => {
-      if (!src) return <img alt={alt} {...rest} />;
-      if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
-        return <img src={src} alt={alt} {...rest} />;
+    img: ({ src, alt, ...rest }: React.ImgHTMLAttributes<HTMLImageElement>) => {
+      const srcStr = typeof src === 'string' ? src : undefined;
+      if (!srcStr) return <img alt={alt} {...rest} />;
+      if (/^(https?:)?\/\//i.test(srcStr) || srcStr.startsWith('/')) {
+        return <img src={srcStr} alt={alt} {...rest} />;
       }
-      const cleaned = src.replace(/^\.\//, '');
+      const cleaned = srcStr.replace(/^\.\//, '');
       const apiPath = `/api/content?path=${encodeURIComponent(
         `reading-plans/unplugging-from-the-matrix/day-${dayNumber}/${cleaned}`
       )}`;

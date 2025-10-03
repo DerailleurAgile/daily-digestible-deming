@@ -19,7 +19,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const data = await fs.promises.readFile(fullPath);
+    const data = await fs.promises.readFile(fullPath); // Node Buffer
     const ext = path.extname(fullPath).toLowerCase();
     const mime =
       ext === ".png"
@@ -32,12 +32,15 @@ export async function GET(req: Request) {
         ? "image/gif"
         : "application/octet-stream";
 
-    return new Response(data, {
+    // Convert Node Buffer -> ArrayBuffer for the Web Response body
+    const arrayBuffer = data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
+
+    return new Response(arrayBuffer, {
       headers: {
         "Content-Type": mime,
       },
     });
-  } catch (err) {
+  } catch (_err) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }
 }
