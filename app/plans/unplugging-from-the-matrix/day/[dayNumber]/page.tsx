@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import fs from "fs";
@@ -8,15 +7,15 @@ import remarkGfm from "remark-gfm";
 
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
 
-// Generate static params dynamically from metadata
+// Generate static params dynamically
 export async function generateStaticParams() {
   return Array.from({ length: metadata.days }, (_, i) => ({
     dayNumber: String(i + 1),
   }));
 }
 
-// Helper to get content for a given day
-async function getDayContent(dayNumber: string) {
+// Helper to read a day's Markdown content
+async function getDayContent(dayNumber: string): Promise<string | null> {
   try {
     const filePath = path.join(
       process.cwd(),
@@ -25,27 +24,25 @@ async function getDayContent(dayNumber: string) {
       "unplugging-from-the-matrix",
       `day-${dayNumber}.md`
     );
-
     return fs.readFileSync(filePath, "utf-8");
   } catch {
     return null;
   }
 }
 
-// Use 'any' to satisfy Next.js PageProps constraint for async pages
-export default async function DayReading({ params }: any): Promise<JSX.Element> {
+// Define props type for the page
+type DayPageProps = {
+  params: { dayNumber: string };
+};
+
+export default async function DayReading({ params }: DayPageProps) {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
-  if (dayNum < 1 || dayNum > metadata.days) {
-    notFound();
-  }
+  if (dayNum < 1 || dayNum > metadata.days) notFound();
 
   const content = await getDayContent(dayNumber);
-
-  if (!content) {
-    notFound();
-  }
+  if (!content) notFound();
 
   return (
     <main className="min-h-screen">
