@@ -17,7 +17,7 @@ const spectral = Spectral({
 
 export const metadata: Metadata = {
   title: "The Daily Digestible Deming",
-  description: "Daily insights for transformational leadership using Dr. W. Edwards Deming's System of Profound Knowledge",
+  description: "Daily insights for transformational leadership using Dr. W. Edwards Deming&apos;s System of Profound Knowledge",
 };
 
 export default function RootLayout({
