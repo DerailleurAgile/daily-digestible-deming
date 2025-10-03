@@ -13,36 +13,27 @@ export async function generateStaticParams() {
   }));
 }
 
-// Helper to read a day's Markdown content
-async function getDayContent(dayNumber: string): Promise<string | null> {
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      "content",
-      "reading-plans",
-      "unplugging-from-the-matrix",
-      `day-${dayNumber}.md`
-    );
-    return fs.readFileSync(filePath, "utf-8");
-  } catch {
-    return null;
-  }
-}
-
-// --- KEY FIX ---
-// Do NOT declare a separate interface; type inline instead
-export default async function DayReading({
-  params,
-}: {
-  params: { dayNumber: string };
-}) {
+export default function DayReading({ params }: { params: { dayNumber: string } }) {
   const { dayNumber } = params;
   const dayNum = parseInt(dayNumber, 10);
 
   if (dayNum < 1 || dayNum > metadata.days) notFound();
 
-  const content = await getDayContent(dayNumber);
-  if (!content) notFound();
+  // Synchronous read
+  const filePath = path.join(
+    process.cwd(),
+    "content",
+    "reading-plans",
+    "unplugging-from-the-matrix",
+    `day-${dayNumber}.md`
+  );
+
+  let content: string;
+  try {
+    content = fs.readFileSync(filePath, "utf-8");
+  } catch {
+    notFound();
+  }
 
   return (
     <main className="min-h-screen">
