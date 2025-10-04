@@ -103,6 +103,16 @@
     font-size: 0.875em;
   }
 
+  .prose img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 400px; /* Adjust as required */
+    height: auto;
+  }
+
   /* Hover states for interactive elements */
   .hover\:border-blue-600:hover {
     border-color: rgb(37 99 235);
@@ -169,4 +179,5 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
+
 }

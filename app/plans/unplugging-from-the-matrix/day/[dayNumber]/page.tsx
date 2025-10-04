@@ -63,21 +63,64 @@ export default async function DayReading({
     notFound();
   }
 
-  // Render relative image links (e.g. ![alt](./img.png)) via the content API
+  // inside your page component, replace the img renderer with this:
+  const resolveSrc = (src: any): string | undefined => {
+    if (!src) return undefined;
+    if (typeof src === "string") return src;
+    // MDX/Webpack imports sometimes give an object
+    if (typeof src === "object") {
+      if ("src" in src && typeof src.src === "string") return src.src;
+      if ("default" in src && typeof src.default === "string") return src.default;
+      if ("href" in src && typeof src.href === "string") return src.href;
+    }
+    return undefined;
+  };
+
   const components = {
     img: ({ src, alt, ...rest }: React.ImgHTMLAttributes<HTMLImageElement>) => {
-      const srcStr = typeof src === 'string' ? src : undefined;
-      if (!srcStr) return <img alt={alt} {...rest} />;
-      if (/^(https?:)?\/\//i.test(srcStr) || srcStr.startsWith('/')) {
-        return <img src={srcStr} alt={alt} {...rest} />;
+      if (!src) return <img alt={alt} {...rest} />;
+      if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
+        return <img src={src} alt={alt} {...rest} />;
       }
-      const cleaned = srcStr.replace(/^\.\//, '');
+      const cleaned = src.replace(/^\.\//, '').replace(/^img\//, ''); // extra safety
       const apiPath = `/api/content?path=${encodeURIComponent(
-        `reading-plans/unplugging-from-the-matrix/day-${dayNumber}/${cleaned}`
+        `reading-plans/unplugging-from-the-matrix/img/${cleaned}`
       )}`;
       return <img src={apiPath} alt={alt} {...rest} />;
     },
   };
+
+  // const components = {
+  //   img: ({ src, alt, ...rest }: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  //     if (!src) return <img alt={alt} {...rest} />;
+  //     if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
+  //       return (
+  //         <div className="flex justify-center my-8">
+  //           <img
+  //             src={src}
+  //             alt={alt}
+  //             className="max-w-full h-auto rounded-xl shadow-md"
+  //             {...rest}
+  //           />
+  //         </div>
+  //       );
+  //     }
+  //     const cleaned = src.replace(/^\.\//, '').replace(/^img\//, '');
+  //     const apiPath = `/api/content?path=${encodeURIComponent(
+  //       `reading-plans/unplugging-from-the-matrix/img/${cleaned}`
+  //     )}`;
+  //     return (
+  //       <figure className="flex justify-center my-8">
+  //         <img
+  //           src={apiPath}
+  //           alt={alt}
+  //           className="max-w-[80%] md:max-w-[60%] h-auto rounded-xl shadow-md"
+  //           {...rest}
+  //         />
+  //       </figure>
+  //     );
+  //   },
+  // };
 
   return (
     <main className="min-h-screen">
