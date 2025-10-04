@@ -58,19 +58,19 @@ export default function PlanOverview() {
               <Link
                 key={day.number}
                 href={`/plans/unplugging-from-the-matrix/day/${day.number}`}
-                className="block border border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:bg-blue-50 transition-colors"
+                className="group block border border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:bg-blue-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-100"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center font-bold">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center font-bold transition-colors group-hover:bg-blue-600 group-hover:text-white">
                     {day.number}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold mb-1">{day.title}</h4>
-                    <p className="text-gray-600 text-sm">
+                    <h4 className="text-lg font-semibold mb-1 transition-colors group-hover:text-blue-600">{day.title}</h4>
+                    <p className="text-gray-600 text-sm transition-colors group-hover:text-gray-800">
                       Day {day.number} of {metadata.days}
                     </p>
                   </div>
-                  <div className="text-gray-400">→</div>
+                  <div className="text-gray-400 transition-colors group-hover:text-blue-600">→</div>
                 </div>
               </Link>
             ))}
