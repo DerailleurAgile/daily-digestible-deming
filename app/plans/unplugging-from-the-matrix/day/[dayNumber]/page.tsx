@@ -66,10 +66,21 @@ export default async function DayReading({
   const components = {
     img: ({ src, alt, ...rest }: React.ImgHTMLAttributes<HTMLImageElement>) => {
       if (!src) return <img alt={alt} {...rest} />;
-      if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
+
+      // if (/^(https?:)?\/\//i.test(src) || src.startsWith('/')) {
+      //   return <img src={src} alt={alt} {...rest} />;
+      // }
+
+      if (typeof src === 'string' && (/^(https?:)?\/\//i.test(src) || src.startsWith('/'))) {
         return <img src={src} alt={alt} {...rest} />;
       }
-      const cleaned = src.replace(/^\.\//, '').replace(/^img\//, ''); // extra safety
+
+      // const cleaned = src.replace(/^\.\//, '').replace(/^img\//, ''); // extra safety
+      
+      const cleaned = typeof src === 'string'
+        ? src.replace(/^\.\//, '').replace(/^img\//, '')
+        : '';
+
       const apiPath = `/api/content?path=${encodeURIComponent(
         `reading-plans/unplugging-from-the-matrix/img/${cleaned}`
       )}`;
