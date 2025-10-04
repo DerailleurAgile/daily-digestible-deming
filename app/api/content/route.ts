@@ -35,7 +35,10 @@ export async function GET(req: Request) {
         ? "image/gif"
         : "application/octet-stream";
 
-    return new Response(data, {
+
+    const uint8 = new Uint8Array(data);
+    return new Response(uint8, {
+    // return new Response(data, {
       headers: {
         "Content-Type": mime,
         "Cache-Control": "public, max-age=31536000, immutable",
