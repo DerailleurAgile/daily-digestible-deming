@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Slab, Spectral } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
