@@ -17,7 +17,7 @@ export default function Home() {
         <div className="mb-12">
           <h2 className="text-5xl mb-6">Free Your Mind</h2>
           <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            The management world you see every day might be an illusion. Discover how W. Edwards Deming's 
+            The management world you see every day might be an illusion. Discover how Dr. W. Edwards Deming's 
             System of Profound Knowledge can help you see your organization as it truly is.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed">

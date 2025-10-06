@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
+import DayCompleteBadge from "@/components/DayCompleteBadge";
 
 export default function PlanOverview() {
   // Build the days array dynamically from metadata
@@ -65,7 +66,11 @@ export default function PlanOverview() {
                     {day.number}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold mb-1 transition-colors group-hover:text-blue-600">{day.title}</h4>
+                    <div>
+                      <h4 className="text-lg font-semibold mb-1 transition-colors group-hover:text-blue-600">{day.title}</h4>
+                      {/* Daily Reading Completion Badge */}
+                      <DayCompleteBadge dayNumber={day.number} />
+                    </div>
                     <p className="text-gray-600 text-sm transition-colors group-hover:text-gray-800">
                       Day {day.number} of {metadata.days}
                     </p>

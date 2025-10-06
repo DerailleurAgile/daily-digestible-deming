@@ -5,6 +5,7 @@ import path from 'path';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import MarkDoneAndNavigate from '@/components/MarkDoneAndNavigate';
 
 // This tells Next.js which pages to pre-generate
 export function generateStaticParams() {
@@ -130,19 +131,17 @@ export default async function DayReading({
             )}
             
             {dayNum < 7 ? (
-              <Link
-                href={`/plans/unplugging-from-the-matrix/day/${dayNum + 1}`}
-                className="text-blue-600 hover:underline flex items-center gap-2"
-              >
-                Next Day →
-              </Link>
-            ) : (
-              <Link
-                href="/plans/unplugging-from-the-matrix"
-                className="text-blue-600 hover:underline flex items-center gap-2"
-              >
-                Complete ✓
-              </Link>
+              // mark current day done then go to next
+                <MarkDoneAndNavigate
+                  dayNumber={dayNum}
+                  target={`/plans/unplugging-from-the-matrix/day/${dayNum + 1}`}
+                />
+              ) : (
+                // final day: mark done then go back to overview
+                <MarkDoneAndNavigate
+                  dayNumber={dayNum}
+                  target={`/plans/unplugging-from-the-matrix`}
+                />
             )}
           </div>
         </div>
