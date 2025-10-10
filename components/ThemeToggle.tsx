@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-const STORAGE_KEY = 'dd-theme'; // 'light' | 'dark'
+const STORAGE_KEY = 'dd-theme';
 
 // This function is similar to ThemeProvider but includes UI for toggling
 export default function ThemeToggle({ className = '' }: { className?: string }) {
@@ -11,35 +11,22 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
 
   // initialize once on client
   useEffect(() => {
-    const root = document.documentElement;
-    const body = document.body;
-
-    function apply(t: 'light' | 'dark') {
-      if (t === 'dark') {
-        root.classList.add('dark');
-        // body.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-        // body.classList.remove('dark');
-      }
-    }
-
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) as 'light' | 'dark' | null;
+      const saved = localStorage.getItem(STORAGE_KEY);
       if (saved === 'light' || saved === 'dark') {
         setTheme(saved);
-        apply(saved);
+        document.documentElement.classList[saved === 'dark' ? 'add' : 'remove']('dark');
         return;
       }
-    } catch (e) {
-      // ignore storage errors
+    } catch {
+      // ignore
     }
 
     // no saved preference → follow system
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initial = prefersDark ? 'dark' : 'light';
     setTheme(initial);
-    apply(initial);
+    document.documentElement.classList[initial === 'dark' ? 'add' : 'remove']('dark');
   }, []);
 
   useEffect(() => {
@@ -47,15 +34,7 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
     try {
       localStorage.setItem(STORAGE_KEY, theme);
     } catch {}
-    const root = document.documentElement;
-    const body = document.body;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      body.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-      body.classList.remove('dark');
-    }
+    document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
   }, [theme]);
 
   function toggle() {

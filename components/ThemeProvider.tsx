@@ -9,18 +9,12 @@ const STORAGE_KEY = 'dd-theme'; // 'light' | 'dark' | absent => follow system
 export default function ThemeProvider() {
   useEffect(() => {
     const root = document.documentElement;
-    const body = document.body;
 
     function applyTheme(theme: 'light' | 'dark' | null) {
       const useDark =
         theme === 'dark' || (theme === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      if (useDark) {
-        root.classList.add('dark');
-        // body.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-        // body.classList.remove('dark');
-      }
+      if (useDark) root.classList.add('dark');
+      else root.classList.remove('dark');
     }
 
     // initial
