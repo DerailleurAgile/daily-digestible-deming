@@ -62,14 +62,10 @@ export default function PlanOverview() {
                 className="group block border border-gray-200 rounded-lg p-6 hover:border-blue-600 hover:bg-blue-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-100"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center font-bold transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                    {day.number}
-                  </div>
                   <div className="flex-1">
-                    <div>
-                      <h4 className="text-lg font-semibold mb-1 transition-colors group-hover:text-blue-600">{day.title}</h4>
-                      {/* Daily Reading Completion Badge */}
-                      <DayCompleteBadge dayNumber={day.number} />
+                    <div className="flex items-center">
+                      <h4 className="text-lg font-semibold mb-1">{day.title}</h4>
+                      <DayCompleteBadge planSlug="unplugging-from-the-matrix" dayNumber={day.number} />
                     </div>
                     <p className="text-gray-600 text-sm transition-colors group-hover:text-gray-800">
                       Day {day.number} of {metadata.days}
