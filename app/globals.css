@@ -246,3 +246,82 @@
     color: rgb(6 95 70);
   }
 }
+
+/* Dark-mode overrides (applied when .dark is on <html> or <body>) */
+.dark body {
+  color: rgb(255 255 255);
+  background-color: rgb(0 0 0);
+}
+
+.dark .prose blockquote {
+  border-left-color: rgb(96 165 250);
+  color: rgb(148 163 184);
+}
+
+.dark .prose a {
+  color: rgb(96 165 250);
+}
+
+.dark .prose a:hover {
+  color: rgb(59 130 246);
+}
+
+.dark .prose code {
+  background-color: rgb(20 23 26);
+  color: rgb(255 255 255);
+}
+
+.dark .prose img {
+  filter: none;
+}
+
+/* UI element overrides */
+.dark .nav-btn {
+  background-color: rgb(15 15 15);
+  color: rgb(255 255 255);
+}
+
+.dark .nav-btn:hover {
+  background-color: rgb(31 41 55);
+}
+
+.dark .nav-btn-secondary {
+  background-color: rgb(10 10 10);
+  color: rgb(255 255 255);
+}
+
+.dark .nav-btn-secondary:hover {
+  background-color: rgb(20 20 20);
+}
+
+/* Completion badge tweak for dark */
+.dark .complete-badge {
+  background-color: rgb(16 185 129);
+  color: rgb(4 78 60);
+}
+
+/* Group hover dark adjustments (preserve your group-hover utilities) */
+.dark .group:hover .group-hover\:text-white {
+  color: rgb(255 255 255);
+}
+.dark .group:hover .group-hover\:text-gray-800 {
+  color: rgb(203 213 225);
+}
+.dark .group:hover .group-hover\:bg-blue-600 {
+  background-color: rgb(37 99 235);
+}
+
+/* --- TEMPORARY: ensure dark utility text colors take effect --- */
+/* Scopes common gray text utilities to sensible dark-mode color */
+.dark .text-gray-300,
+.dark .text-gray-400,
+.dark .text-gray-500,
+.dark .text-gray-600,
+.dark .text-gray-700 {
+  color: rgb(148 163 184) !important; /* slate-300-ish for legibility in dark mode */
+}
+
+/* Optional: common border/background adjustments (uncomment if needed)
+.dark .border-gray-200 { border-color: rgb(31 41 55) !important; }
+.dark .bg-gray-50 { background-color: rgb(10 10 10) !important; }
+*/

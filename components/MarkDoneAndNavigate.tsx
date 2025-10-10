@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 
 type Props = {
+  planSlug: string;
   dayNumber: number;
   target: string;
   storageKey?: string;
@@ -10,7 +11,7 @@ type Props = {
 
 const STORAGE_KEY_DEFAULT = 'dd-progress';
 
-function readProgress(key: string) {
+function readProgress(key: string): Record<string, Record<string, boolean>> {
   try {
     const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : {};
@@ -18,13 +19,14 @@ function readProgress(key: string) {
     return {};
   }
 }
-function writeProgress(key: string, p: Record<string, boolean>) {
+function writeProgress(key: string, p: Record<string, Record<string, boolean>>) {
   try {
     localStorage.setItem(key, JSON.stringify(p));
   } catch {}
 }
 
 export default function MarkDoneAndNavigate({
+  planSlug,
   dayNumber,
   target,
   storageKey = STORAGE_KEY_DEFAULT,
@@ -32,9 +34,10 @@ export default function MarkDoneAndNavigate({
   const router = useRouter();
 
   function handleClick() {
-    const p = readProgress(storageKey);
-    p[String(dayNumber)] = true;
-    writeProgress(storageKey, p);
+    const all = readProgress(storageKey);
+    if (!all[planSlug]) all[planSlug] = {};
+    all[planSlug][String(dayNumber)] = true;
+    writeProgress(storageKey, all);
     router.push(target);
   }
 

@@ -1,7 +1,11 @@
+// Root layout for the Next.js application
+// This file sets up global styles, fonts, and metadata for the app 
 import type { Metadata } from "next";
 import { Roboto_Slab, Spectral } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import BottomNav from '@/components/BottomNav';
+import ThemeProvider from '@/components/ThemeProvider'; // client provider
 
 const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
@@ -29,9 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${robotoSlab.variable} ${spectral.variable} antialiased`}
+        // use theme-aware classes, not hard-coded dark
+        className={`${robotoSlab.variable} ${spectral.variable} antialiased bg-white text-slate-900 dark:bg-black dark:text-white`}
       >
+        {/* client ThemeProvider will initialize theme on first load */}
+        <ThemeProvider />
         {children}
+        <BottomNav />
       </body>
     </html>
   );

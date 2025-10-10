@@ -52,14 +52,15 @@ export default async function DayReading({
   params: Promise<{ dayNumber: string }>;
 }) {
   const { dayNumber } = await params;
-  const dayNum = parseInt(dayNumber);
-  
+  const dayNum = parseInt(dayNumber, 10);
+  const planSlug = 'unplugging-from-the-matrix';
+
   if (dayNum < 1 || dayNum > 7) {
     notFound();
   }
 
   const content = await getDayContent(dayNumber);
-  
+
   if (!content) {
     notFound();
   }
@@ -77,7 +78,7 @@ export default async function DayReading({
       }
 
       // const cleaned = src.replace(/^\.\//, '').replace(/^img\//, ''); // extra safety
-      
+
       const cleaned = typeof src === 'string'
         ? src.replace(/^\.\//, '').replace(/^img\//, '')
         : '';
@@ -121,28 +122,30 @@ export default async function DayReading({
           <div className="flex justify-between items-center">
             {dayNum > 1 ? (
               <Link
-                href={`/plans/unplugging-from-the-matrix/day/${dayNum - 1}`}
+                href={`/plans/${planSlug}/day/${dayNum - 1}`}
                 className="text-blue-600 hover:underline flex items-center gap-2"
               >
                 ← Previous Day
               </Link>
             ) : (
-              <div></div>
+              <div />
             )}
-            
-            {dayNum < 7 ? (
-              // mark current day done then go to next
+
+            <div>
+              {dayNum < 7 ? (
                 <MarkDoneAndNavigate
+                  planSlug={planSlug}
                   dayNumber={dayNum}
-                  target={`/plans/unplugging-from-the-matrix/day/${dayNum + 1}`}
+                  target={`/plans/${planSlug}/day/${dayNum + 1}`}
                 />
               ) : (
-                // final day: mark done then go back to overview
                 <MarkDoneAndNavigate
+                  planSlug={planSlug}
                   dayNumber={dayNum}
-                  target={`/plans/unplugging-from-the-matrix`}
+                  target={`/plans/${planSlug}`}
                 />
-            )}
+              )}
+            </div>
           </div>
         </div>
       </nav>
