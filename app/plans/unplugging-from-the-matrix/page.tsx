@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import metadata from "@/content/reading-plans/unplugging-from-the-matrix/metadata.json";
 import DayCompleteBadge from "@/components/DayCompleteBadge";
@@ -39,7 +40,7 @@ export default function PlanOverview() {
 
         {/* What You'll Learn */}
         <div className="mb-12 bg-gray-50 border border-gray-200 rounded-lg p-8">
-          <h3 className="text-2xl mb-4">What You'll Learn</h3>
+          <h3 className="text-2xl mb-4">What You&apos;ll Learn</h3>
           <ul className="space-y-3">
             {metadata.learningGoals.map((goal: string, idx: number) => (
               <li key={idx} className="flex items-start">
@@ -87,7 +88,7 @@ export default function PlanOverview() {
         <div className="bg-gray-900 text-white rounded-lg p-8 text-center">
           <h3 className="text-2xl mb-4">Ready to Begin?</h3>
           <p className="mb-6 text-gray-300">
-            Start with Day 1 and discover what's been hidden in plain sight.
+            Start with Day 1 and discover what&apos;s been hidden in plain sight.
           </p>
           <Link
             href="/plans/unplugging-from-the-matrix/day/1"
