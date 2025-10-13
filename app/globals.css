@@ -109,17 +109,17 @@
     margin-right: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    max-width: 500px; /* Adjust as required */
+    max-width: 500px;
     height: auto;
   }
 
-  /* Hover states for interactive elements */
+  /* Hover states for interactive elements - UPDATED FOR DARKER HOVER */
   .hover\:border-blue-600:hover {
-    border-color: rgb(37 99 235);
+    border-color: rgb(71 85 105); /* slate-600 */
   }
 
   .hover\:bg-blue-50:hover {
-    background-color: rgb(239 246 255);
+    background-color: rgb(51 65 85); /* slate-700 */
   }
 
   .hover\:bg-blue-100:hover {
@@ -142,9 +142,9 @@
     text-decoration: underline;
   }
 
-  /* Group hover states */
+  /* Group hover states - UPDATED FOR BETTER CONTRAST ON DARK BG */
   .group:hover .group-hover\:bg-blue-600 {
-    background-color: rgb(37 99 235);
+    background-color: rgb(59 130 246); /* lighter blue */
   }
 
   .group:hover .group-hover\:text-white {
@@ -152,11 +152,11 @@
   }
 
   .group:hover .group-hover\:text-blue-600 {
-    color: rgb(37 99 235);
+    color: rgb(147 197 253); /* light blue-300 */
   }
 
   .group:hover .group-hover\:text-gray-800 {
-    color: rgb(31 41 55);
+    color: rgb(209 213 219); /* gray-300 */
   }
 
   /* Focus states */
@@ -249,35 +249,35 @@
   /* Explicit Plan Card styles to avoid utility ordering issues */
   .plan-card {
     background-color: rgb(255 255 255);
-    border-color: rgb(229 231 235); /* tailwind border-gray-200 */
+    border-color: rgb(229 231 235);
     color: inherit;
     transition: box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
     box-shadow: none;
   }
 
   .plan-card:hover {
-    border-color: rgb(37 99 235); /* blue-600 hover */
-    background-color: rgb(239 246 255); /* blue-50 */
+    border-color: rgb(37 99 235);
+    background-color: rgb(239 246 255);
   }
 
   /* Dark mode equivalent */
   .dark .plan-card {
-    background-color: rgb(31 41 55); /* gray-800-ish */
-    border-color: rgb(55 65 81); /* gray-700 */
+    background-color: rgb(31 41 55);
+    border-color: rgb(55 65 81);
   }
 
   .dark .plan-card:hover {
-    border-color: rgb(59 130 246); /* subtle blue-500/600 */
-    background-color: rgb(30 41 59); /* slightly lighter than bg */
-    box-shadow: 0 8px 32px rgba(59,130,246,0.06); /* subtle blue glow */
+    border-color: rgb(59 130 246);
+    background-color: rgb(30 41 59);
+    box-shadow: 0 8px 32px rgba(59,130,246,0.06);
   }
 
-  /* Force correct dark visuals for plan/reading cards (fixes washed out / white cards) */
+  /* Force correct dark visuals for plan/reading cards */
   .dark .plan-card,
   .dark .reading-card {
-    background-color: rgb(31 41 55) !important;       /* dark card background */
-    border-color: rgb(55 65 81) !important;           /* dark border */
-    color: rgb(226 232 240) !important;               /* base text inside card */
+    background-color: rgb(31 41 55) !important;
+    border-color: rgb(55 65 81) !important;
+    color: rgb(226 232 240) !important;
   }
 
   /* Headings and important text inside the cards */
@@ -285,7 +285,7 @@
   .dark .reading-card h3,
   .dark .plan-card .text-lg,
   .dark .reading-card .text-lg {
-    color: rgb(236 239 241) !important;               /* lighter heading */
+    color: rgb(236 239 241) !important;
   }
 
   /* Paragraphs, metadata and muted text */
@@ -295,7 +295,7 @@
   .dark .reading-card .text-sm,
   .dark .plan-card .text-gray-600,
   .dark .reading-card .text-gray-600 {
-    color: rgb(203 213 225) !important;               /* readable muted text */
+    color: rgb(203 213 225) !important;
   }
 
   /* Avatar / square tile inside cards */
@@ -303,7 +303,7 @@
   .dark .reading-card .bg-gray-700,
   .dark .plan-card .rounded-md,
   .dark .reading-card .rounded-md {
-    background-color: rgb(44 54 63) !important;       /* avatar/square bg */
+    background-color: rgb(44 54 63) !important;
   }
 
   /* Hover state: subtle lift/glow without washing out text */
@@ -313,10 +313,9 @@
     border-color: rgb(59 130 246) !important;
     box-shadow: 0 8px 28px rgba(59,130,246,0.06);
   }
-
-  /* keep internal elements using their existing utility classes */
 }
 
+/* Dark mode styles - OUTSIDE @layer base */
 .dark body {
   color: rgb(255 255 255);
   background-color: rgb(0 0 0);
@@ -369,7 +368,7 @@
   color: rgb(4 78 60);
 }
 
-/* Group hover dark adjustments (preserve your group-hover utilities) */
+/* Group hover dark adjustments */
 .dark .group:hover .group-hover\:text-white {
   color: rgb(255 255 255);
 }
@@ -380,14 +379,13 @@
   background-color: rgb(37 99 235);
 }
 
-/* --- TEMPORARY: ensure dark utility text colors take effect --- */
-/* Scopes common gray text utilities to sensible dark-mode color */
+/* Ensure dark utility text colors take effect */
 .dark .text-gray-300,
 .dark .text-gray-400,
 .dark .text-gray-500,
 .dark .text-gray-600,
 .dark .text-gray-700 {
-  color: rgb(148 163 184) !important; /* slate-300-ish for legibility in dark mode */
+  color: rgb(148 163 184) !important;
 }
 
 /* Ensure common Tailwind bg/border utilities flip correctly in dark mode */
@@ -398,7 +396,19 @@
   border-color: rgb(31 41 55) !important;
 }
 
-/* Optional: common border/background adjustments (uncomment if needed)
-.dark .border-gray-200 { border-color: rgb(31 41 55) !important; }
-.dark .bg-gray-50 { background-color: rgb(10 10 10) !important; }
-*/
+/* Dark mode hover fixes - add at the very end */
+.dark .hover\:bg-blue-50:hover {
+  background-color: rgb(51 65 85) !important; /* slate-700 */
+}
+
+.dark .hover\:border-blue-600:hover {
+  border-color: rgb(71 85 105) !important; /* slate-600 */
+}
+
+.dark .group:hover .group-hover\:text-blue-600 {
+  color: rgb(147 197 253) !important; /* light blue-300 */
+}
+
+.dark .group:hover .group-hover\:text-gray-800 {
+  color: rgb(209 213 219) !important; /* gray-300 */
+}
