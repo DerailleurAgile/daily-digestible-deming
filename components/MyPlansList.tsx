@@ -22,8 +22,8 @@ export default function MyPlansList({ plans }: { plans: Plan[] }) {
   if (subscribedPlans.length === 0) {
     return (
       <div className="space-y-4">
-        <p className="text-gray-400">You haven&apos;t added any plans yet.</p>
-        <Link href="/my-plans/find" className="inline-block mt-2 text-sm text-blue-500">Find plans →</Link>
+        <p className="text-gray-400">You haven&apos;t added any Study Plans yet.</p>
+        <Link href="/my-plans/find" className="inline-block mt-2 text-sm text-blue-500">Find Study Plans →</Link>
       </div>
     );
   }

@@ -30,9 +30,9 @@ async function loadPlans() {
 export default async function MyPlansPage() {
   const plans = await loadPlans();
   return (
-    <main className="min-h-screen pb-24"> {/* pb for bottom nav */}
+    <main className="min-h-screen pb-24">
       <div className="max-w-4xl mx-auto px-6 py-10">
-        <h1 className="text-3xl mb-6">My Plans</h1>
+        <h1 className="text-3xl mb-6">My Study Plans</h1>
         <MyPlansList plans={plans} />
       </div>
     </main>

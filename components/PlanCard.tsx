@@ -24,23 +24,44 @@ export default function PlanCard({ plan, showProgress }: { plan: Plan; showProgr
   }, [plan.slug, plan.days, showProgress]);
 
   return (
-    <Link href={`/plans/${plan.slug}`} className="group block w-full">
-      <div className="flex items-center gap-4 p-4 border border-gray-800 rounded-lg bg-black/60">
-        <div className="w-14 h-14 bg-gray-700 rounded-md flex-shrink-0" />
+    <Link
+      href={`/plans/${plan.slug}`}
+      className="plan-card group block rounded-lg p-6 border transition-colors focus:outline-none focus:ring-2 focus:ring-blue-100 dark:focus:ring-0"
+    >
+      <div className="flex items-start gap-4">
+        <div
+          className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-900 text-white flex items-center justify-center font-bold transition-colors group-hover:bg-blue-600"
+          aria-hidden
+        >
+          {plan.title ? plan.title[0] : plan.slug[0]}
+        </div>
+
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h3 className="text-lg font-semibold">{plan.title ?? plan.slug}</h3>
+            <h3 className="text-lg font-semibold mb-1 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              {plan.title ?? plan.slug}
+            </h3>
             {showProgress && (
-              <span className="ml-2 text-sm text-gray-400">{progress}%</span>
+              <span className="ml-2 text-sm text-gray-400 dark:text-gray-300">{progress}%</span>
             )}
           </div>
-          <p className="text-sm text-gray-400">{plan.description}</p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors">
+            {plan.description}
+          </p>
+
           {showProgress && (
-            <div className="mt-2 h-2 bg-gray-700 rounded-full overflow-hidden">
-              <div className="h-full bg-emerald-500" style={{ width: `${progress}%` }} />
+            <div className="mt-4 h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-emerald-500"
+                style={{ width: `${progress}%` }}
+                aria-hidden
+              />
             </div>
           )}
         </div>
+
+        <div className="ml-4 text-gray-400 transition-colors group-hover:text-blue-600">→</div>
       </div>
     </Link>
   );

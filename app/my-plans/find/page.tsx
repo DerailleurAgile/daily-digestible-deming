@@ -32,7 +32,7 @@ export default async function FindPlansPage() {
   return (
     <main className="min-h-screen pb-24">
       <div className="max-w-4xl mx-auto px-6 py-10">
-        <h1 className="text-3xl mb-6">Find Plans</h1>
+        <h1 className="text-3xl mb-6">Find Study Plans</h1>
         <FindPlansList plans={plans} />
       </div>
     </main>

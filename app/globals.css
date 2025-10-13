@@ -245,9 +245,78 @@
     background-color: rgb(209 250 229);
     color: rgb(6 95 70);
   }
+
+  /* Explicit Plan Card styles to avoid utility ordering issues */
+  .plan-card {
+    background-color: rgb(255 255 255);
+    border-color: rgb(229 231 235); /* tailwind border-gray-200 */
+    color: inherit;
+    transition: box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
+    box-shadow: none;
+  }
+
+  .plan-card:hover {
+    border-color: rgb(37 99 235); /* blue-600 hover */
+    background-color: rgb(239 246 255); /* blue-50 */
+  }
+
+  /* Dark mode equivalent */
+  .dark .plan-card {
+    background-color: rgb(31 41 55); /* gray-800-ish */
+    border-color: rgb(55 65 81); /* gray-700 */
+  }
+
+  .dark .plan-card:hover {
+    border-color: rgb(59 130 246); /* subtle blue-500/600 */
+    background-color: rgb(30 41 59); /* slightly lighter than bg */
+    box-shadow: 0 8px 32px rgba(59,130,246,0.06); /* subtle blue glow */
+  }
+
+  /* Force correct dark visuals for plan/reading cards (fixes washed out / white cards) */
+  .dark .plan-card,
+  .dark .reading-card {
+    background-color: rgb(31 41 55) !important;       /* dark card background */
+    border-color: rgb(55 65 81) !important;           /* dark border */
+    color: rgb(226 232 240) !important;               /* base text inside card */
+  }
+
+  /* Headings and important text inside the cards */
+  .dark .plan-card h3,
+  .dark .reading-card h3,
+  .dark .plan-card .text-lg,
+  .dark .reading-card .text-lg {
+    color: rgb(236 239 241) !important;               /* lighter heading */
+  }
+
+  /* Paragraphs, metadata and muted text */
+  .dark .plan-card p,
+  .dark .reading-card p,
+  .dark .plan-card .text-sm,
+  .dark .reading-card .text-sm,
+  .dark .plan-card .text-gray-600,
+  .dark .reading-card .text-gray-600 {
+    color: rgb(203 213 225) !important;               /* readable muted text */
+  }
+
+  /* Avatar / square tile inside cards */
+  .dark .plan-card .bg-gray-700,
+  .dark .reading-card .bg-gray-700,
+  .dark .plan-card .rounded-md,
+  .dark .reading-card .rounded-md {
+    background-color: rgb(44 54 63) !important;       /* avatar/square bg */
+  }
+
+  /* Hover state: subtle lift/glow without washing out text */
+  .dark .plan-card:hover,
+  .dark .reading-card:hover {
+    background-color: rgb(30 41 59) !important;
+    border-color: rgb(59 130 246) !important;
+    box-shadow: 0 8px 28px rgba(59,130,246,0.06);
+  }
+
+  /* keep internal elements using their existing utility classes */
 }
 
-/* Dark-mode overrides (applied when .dark is on <html> or <body>) */
 .dark body {
   color: rgb(255 255 255);
   background-color: rgb(0 0 0);
@@ -319,6 +388,14 @@
 .dark .text-gray-600,
 .dark .text-gray-700 {
   color: rgb(148 163 184) !important; /* slate-300-ish for legibility in dark mode */
+}
+
+/* Ensure common Tailwind bg/border utilities flip correctly in dark mode */
+.dark .bg-gray-50 {
+  background-color: rgb(15 15 15) !important;
+}
+.dark .border-gray-200 {
+  border-color: rgb(31 41 55) !important;
 }
 
 /* Optional: common border/background adjustments (uncomment if needed)

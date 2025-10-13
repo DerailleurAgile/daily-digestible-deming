@@ -19,7 +19,7 @@ export default function BottomNav() {
 
           <Link href="/my-plans" className={`flex flex-col items-center text-xs gap-1 ${active('/my-plans')}`}>
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/></svg>
-            <span>Plans</span>
+            <span>My Study Plans</span>
           </Link>
 
           <Link href="/my-plans/find" className={`flex flex-col items-center text-xs gap-1 ${active('/my-plans/find')}`}>
