@@ -113,13 +113,13 @@
     height: auto;
   }
 
-  /* Hover states for interactive elements - UPDATED FOR DARKER HOVER */
+  /* Hover states for interactive elements - LIGHT MODE DEFAULTS */
   .hover\:border-blue-600:hover {
-    border-color: rgb(71 85 105); /* slate-600 */
+    border-color: rgb(37 99 235); /* blue-600 */
   }
 
   .hover\:bg-blue-50:hover {
-    background-color: rgb(51 65 85); /* slate-700 */
+    background-color: rgb(239 246 255); /* blue-50 */
   }
 
   .hover\:bg-blue-100:hover {
@@ -142,9 +142,9 @@
     text-decoration: underline;
   }
 
-  /* Group hover states - UPDATED FOR BETTER CONTRAST ON DARK BG */
+  /* Group hover states - LIGHT MODE DEFAULTS */
   .group:hover .group-hover\:bg-blue-600 {
-    background-color: rgb(59 130 246); /* lighter blue */
+    background-color: rgb(37 99 235); /* blue-600 */
   }
 
   .group:hover .group-hover\:text-white {
@@ -152,11 +152,11 @@
   }
 
   .group:hover .group-hover\:text-blue-600 {
-    color: rgb(147 197 253); /* light blue-300 */
+    color: rgb(37 99 235); /* blue-600 */
   }
 
   .group:hover .group-hover\:text-gray-800 {
-    color: rgb(209 213 219); /* gray-300 */
+    color: rgb(31 41 55); /* gray-800 */
   }
 
   /* Focus states */
@@ -396,19 +396,16 @@
   border-color: rgb(31 41 55) !important;
 }
 
-/* Dark mode hover fixes - add at the very end */
-.dark .hover\:bg-blue-50:hover {
+/* More specific dark mode card hover overrides */
+.dark .group.block:hover {
   background-color: rgb(51 65 85) !important; /* slate-700 */
-}
-
-.dark .hover\:border-blue-600:hover {
   border-color: rgb(71 85 105) !important; /* slate-600 */
 }
 
-.dark .group:hover .group-hover\:text-blue-600 {
-  color: rgb(147 197 253) !important; /* light blue-300 */
+.dark .group:hover h4 {
+  color: rgb(147 197 253) !important; /* light blue for contrast */
 }
 
-.dark .group:hover .group-hover\:text-gray-800 {
-  color: rgb(209 213 219) !important; /* gray-300 */
+.dark .group:hover .text-sm {
+  color: rgb(209 213 219) !important; /* lighter gray */
 }
