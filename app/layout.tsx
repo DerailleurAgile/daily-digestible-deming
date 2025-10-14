@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Roboto_Slab, Spectral } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { BottomNav } from '@/components/BottomNav';
+import BottomNav from '@/components/BottomNav';
 import ThemeProvider from '@/components/ThemeProvider'; // client provider
 
 const robotoSlab = Roboto_Slab({
