@@ -88,7 +88,7 @@ export default function PlanOverview() {
         <div className="bg-gray-900 text-white rounded-lg p-8 text-center">
           <h3 className="text-2xl mb-4">Ready to Begin?</h3>
           <p className="mb-6 text-gray-300">
-            Start with Day 0 and discover what&apos;s been hidden in plain sight.
+            Start with Day 1 and discover what&apos;s been hidden in plain sight.
           </p>
           <Link
             href="/plans/14-points/day/1"
