@@ -1,0 +1,33 @@
+{
+  "id": "14-points",
+  "title": "The 14 Points for Management",
+  "description": "A 15-day journey through W. Edwards Deming's foundation for transformation: understanding management as a system, not a checklist. Learn the theory that drives lasting improvement in quality, productivity, and competitive position.",
+  "days": 15,
+  "difficulty": "intermediate",
+  "estimatedTime": "7-10 minutes per day",
+  "tags": ["14-points", "management-theory", "transformation", "quality", "deming-fundamentals"],
+  "learningGoals": [
+    "Understand the 14 Points as an integrated system requiring continual work",
+    "Recognize why common management practices undermine quality and productivity",
+    "Develop a theory of management based on Deming's principles",
+    "Learn to see your organization as a system that management must continually improve",
+    "Apply each point to transform how you lead and make decisions"
+  ],
+  "dayTitles": [
+    "Introduction: The 14 Points Are Not a Checklist",
+    "Create Constancy of Purpose",
+    "Adopt the New Philosophy",
+    "Cease Dependence on Inspection",
+    "End the Practice of Awarding Business on Price",
+    "Improve Constantly and Forever",
+    "Institute Training on the Job",
+    "Institute Leadership",
+    "Drive Out Fear",
+    "Break Down Barriers Between Departments",
+    "Eliminate Slogans and Exhortations",
+    "Eliminate Work Standards and Quotas",
+    "Remove Barriers to Pride of Workmanship",
+    "Institute Education and Self-Improvement",
+    "Put Everybody to Work on Transformation"
+  ]
+}
